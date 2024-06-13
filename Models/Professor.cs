@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+
 namespace ProjetoEscola_WebAPI.Models
 {
-    public class Professor
+    public class Professor 
     {
 
         public Professor()
@@ -19,6 +21,6 @@ namespace ProjetoEscola_WebAPI.Models
         public string nome { get; set; }
         public string sobrenome { get; set; }
 
-        //public string disciplina { get; set; }
+        public IEnumerable<Disciplina> disciplinas { get; set; }
     }
 }
