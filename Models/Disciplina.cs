@@ -7,17 +7,16 @@ namespace ProjetoEscola_WebAPI.Models
         {
 
         }
-        public Disciplina(int id, int professorId, Professor professor, string nome)
+        public Disciplina(int id, int professorId, string nome)
         {
             this.id = id;
-            this.ProfessorId = professorId;
-            this.Professor = professor;
+            this.professorId = professorId;
             this.nome = nome;
 
         }
         public int id { get; set; }
-        public int ProfessorId { get; set; }
-        public Professor Professor { get; set; }
+        public int professorId { get; set; }
+        public Professor professor { get; set; }
         public string nome { get; set; }
     }
 }
