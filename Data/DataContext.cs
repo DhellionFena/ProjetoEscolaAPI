@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using ProjetoEscola_WebAPI.Models;
+using ProjetoEscolaWebApi.Models;
 using System.Collections.Generic;
 
-namespace ProjetoEscola_WebAPI.Data
+namespace ProjetoEscolaWebApi.Data
 {
     public class DataContext : DbContext
     {
@@ -15,7 +15,7 @@ namespace ProjetoEscola_WebAPI.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<AlunoDisciplina>()
-                .HasKey(AD => new { AD.alunoId, AD.DdsciplinaId });
+                .HasKey(AD => new { AD.alunoId, AD.disciplinaId });
 
             builder.Entity<Professor>()
                 .HasData(new List<Professor>(){
@@ -25,7 +25,7 @@ namespace ProjetoEscola_WebAPI.Data
                     new Professor(4, "Victor", "Winitskowski"),
                     new Professor(5, "Carlos", "Mattos"),
                 });
-            
+               
             builder.Entity<Disciplina>()
                 .HasData(new List<Disciplina>{
                     new Disciplina(1, "Matemática", 1),

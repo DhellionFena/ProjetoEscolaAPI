@@ -1,4 +1,4 @@
-namespace ProjetoEscola_WebAPI.Models
+namespace ProjetoEscolaWebApi.Models
 {
     public class AlunoDisciplina
     {
@@ -20,5 +20,6 @@ namespace ProjetoEscola_WebAPI.Models
         public Aluno aluno { get; set; }
         public int disciplinaId { get; set; }
         public Disciplina disciplina { get; set; }
+        
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ProjetoEscola_WebAPI.Models
+namespace ProjetoEscolaWebApi.Models
 {
     public class Professor 
     {

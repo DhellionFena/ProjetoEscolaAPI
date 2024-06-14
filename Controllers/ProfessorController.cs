@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjetoEscola_WebAPI.Controllers
+namespace ProjetoEscolaWebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

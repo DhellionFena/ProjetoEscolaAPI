@@ -1,4 +1,6 @@
-namespace ProjetoEscola_WebAPI.Models
+using System.Collections.Generic;
+
+namespace ProjetoEscolaWebApi.Models
 {
     public class Disciplina
     {
@@ -18,5 +20,6 @@ namespace ProjetoEscola_WebAPI.Models
         public int professorId { get; set; }
         public Professor professor { get; set; }
         public string nome { get; set; }
+        public IEnumerable<AlunoDisciplina> AlunosDisciplinas { get; set; }
     }
 }
