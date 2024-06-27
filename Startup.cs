@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProjetoEscolaWebApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace ProjetoEscolaWebApi
 {
@@ -33,7 +34,10 @@ namespace ProjetoEscolaWebApi
                 x => x.UseSqlite(Configuration.GetConnectionString("DefaultConn"))
             );
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = 
+                Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjetoEscolaWebApi", Version = "v1" });
