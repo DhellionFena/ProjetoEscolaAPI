@@ -64,7 +64,7 @@ namespace ProjetoEscolaWebApi.Controllers
 
                 if (await _repo.SaveChangesAsync())
                 {
-                    return Ok(model.nome + " Adicionado Com Sucesso!");
+                    return Ok(model);
                 }
             }
             catch (System.Exception e)
@@ -73,15 +73,15 @@ namespace ProjetoEscolaWebApi.Controllers
                 return BadRequest("Erro: " + e.Message);
             }
 
-            return BadRequest("Erro não esperado.");
+            return BadRequest("Erro nï¿½o esperado.");
         }
         [HttpPut("{alunoId}")]
         public async Task<IActionResult> put(int alunoId, Aluno model) {
              try
             {
                 var aluno = await _repo.GetAlunoAsyncById(alunoId, false);
-                if (aluno == null) return NotFound("Aluno não encontrado.");
-                if (aluno.id != model.id) throw new Exception("Id de aluno não corresponde ao que será atualizado.");
+                if (aluno == null) return NotFound("Aluno nï¿½o encontrado.");
+                if (aluno.id != model.id) throw new Exception("Id de aluno nï¿½o corresponde ao que serï¿½ atualizado.");
                 _repo.Update(model);
 
                 if (await _repo.SaveChangesAsync())
@@ -95,7 +95,7 @@ namespace ProjetoEscolaWebApi.Controllers
                 return BadRequest("Erro: " + e.Message);
             }
 
-            return BadRequest("Erro não esperado.");
+            return BadRequest("Erro nï¿½o esperado.");
         }
 
         [HttpDelete("{alunoId}")]
@@ -103,7 +103,7 @@ namespace ProjetoEscolaWebApi.Controllers
              try
             {
                 var aluno = await _repo.GetAlunoAsyncById(alunoId, false);
-                if (aluno == null) return NotFound("Aluno não encontrado.");
+                if (aluno == null) return NotFound("Aluno nï¿½o encontrado.");
                 _repo.Delete(aluno);
 
                 if (await _repo.SaveChangesAsync())
@@ -117,7 +117,7 @@ namespace ProjetoEscolaWebApi.Controllers
                 return BadRequest("Erro: " + e.Message);
             }
 
-            return BadRequest("Erro não esperado.");
+            return BadRequest("Erro nï¿½o esperado.");
         }
     }
 }
