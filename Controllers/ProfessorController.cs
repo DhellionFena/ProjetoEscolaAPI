@@ -74,15 +74,15 @@ namespace ProjetoEscolaWebApi.Controllers
                 return BadRequest("Erro: " + e.Message);
             }
 
-            return BadRequest("Erro não esperado.");
+            return BadRequest("Erro nï¿½o esperado.");
         }
         [HttpPut("{profId}")]
         public async Task<IActionResult> put(int profId, Professor model) {
              try
             {
                 var professor = await _repo.GetProfessorAsyncById(profId, false);
-                if (professor == null) return NotFound("Professor não encontrado.");
-                if (professor.id != model.id) throw new Exception("Id de professor não corresponde ao que será atualizado.");
+                if (professor == null) return NotFound("Professor nï¿½o encontrado.");
+                if (professor.id != model.id) throw new Exception("Id de professor nï¿½o corresponde ao que serï¿½ atualizado.");
                 _repo.Update(model);
 
                 if (await _repo.SaveChangesAsync())
@@ -96,7 +96,7 @@ namespace ProjetoEscolaWebApi.Controllers
                 return BadRequest("Erro: " + e.Message);
             }
 
-            return BadRequest("Erro não esperado.");
+            return BadRequest("Erro nï¿½o esperado.");
         }
 
         [HttpDelete("{profId}")]
@@ -104,12 +104,12 @@ namespace ProjetoEscolaWebApi.Controllers
              try
             {
                 var professor = await _repo.GetProfessorAsyncById(profId, false);
-                if (professor == null) return NotFound("Professor não encontrado.");
+                if (professor == null) return NotFound("Professor nï¿½o encontrado.");
                 _repo.Delete(professor);
 
                 if (await _repo.SaveChangesAsync())
                 {
-                    return Ok("Professor Deletado com Sucesso!");
+                    return Ok(new {message = "Professor Deletado com Sucesso!"});
                 }
             }
             catch (System.Exception e)
@@ -118,7 +118,7 @@ namespace ProjetoEscolaWebApi.Controllers
                 return BadRequest("Erro: " + e.Message);
             }
 
-            return BadRequest("Erro não esperado.");
+            return BadRequest("Erro nï¿½o esperado.");
         }
         
     }

@@ -108,7 +108,7 @@ namespace ProjetoEscolaWebApi.Controllers
 
                 if (await _repo.SaveChangesAsync())
                 {
-                    return Ok("Aluno Deletado com Sucesso!");
+                    return Ok(new {message = "Aluno Deletado com Sucesso!"});
                 }
             }
             catch (System.Exception e)
